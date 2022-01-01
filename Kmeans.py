@@ -73,6 +73,7 @@ class K_means:
         for i in range(self.no_of_classes):
             loc = np.where(classes == i)
             loc = np.array(loc)
+            plt.title("K-means Clustering with %s classes"%self.no_of_classes)
             plt.scatter(self.centered_X[loc[0,:]], self.centered_Y[loc[0,:]], color = mark[i])
             plt.pause(0.05)
         #plt.show()
@@ -82,7 +83,7 @@ class K_means:
         diff_sq = (prevUs - newUs)**2
         L2norm = np.sum(diff_sq, axis = 1)**(1/2)
         metric = np.sum(L2norm)
-        print("distance is ",metric)
+        print("change is ",metric)
         return metric
 
     def run_algo(self):
